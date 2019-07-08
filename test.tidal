@@ -1,0 +1,18 @@
+cps 1
+d1 $ sound "arpy*8" # up ( run 8 )
+d1 $ sound "arpy*8" # speed ( run 8 )
+d1 $ sound "arpy*8" # up ( every 2 ( rev ) $ run 8 )
+d1 $ sound $ samples "drum*4" "0 1 2 3"
+d1 $ sound $ samples "drum*4" ( run 4 )
+d1 $ sound "drum*6" # n (run 6)
+d1 $ sound $ samples "drum arpy cp hh" ( run 6 )
+d1 $ sound $ "drum arpy cp hh"
+d1 $ sound "{bd sn bd sn, arpy hh hh hh hh }"
+d1 $ sound "{bd hh sn cp, arpy bass2 drum notes can}"
+d1 $ sound "bd hh sn cp"
+d2 $ sound "arpy bass2 drum notes can"
+d1 $ sound "{~ ~ ~ ~, arpy bass2 drum notes can}"
+d1 silence
+d2 silence
+
+hush

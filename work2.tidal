@@ -1,0 +1,72 @@
+cps 0
+
+hush
+
+d1 $sound "future ~ future future"
+#gain 1
+
+d1 silence
+d2 $sound "cp"
+d2 silence
+d1 $sound "[bd sn sn] cp"
+d1 $sound "[bd*10] [bd bd bd]"
+d1 $sound "[bd bd bd, sn cp sn cp]"
+d1 $ sound "[bd bd bd, sn cp sn cp, arpy*8, odx]"
+d2 $ sound "[bass*4]/2" #gain 1.5
+
+d1 $sound "bd*30"
+
+d1  $ rev (sound "[bd bd] [bd [sn [sn sn] sn] sn]")
+
+d1 $sound "[bd bd] [bd sn]"
+d1 silence
+
+d2 $sound "arpy*16"
+d2 silence
+
+d1 (jux (iter 2) (sound "bd hh hh hh"))
+
+d1 $jux (iter 3) (sound "[bd cp] hh")
+
+d1 $jux (iter 4) $ sound "bd hh sn cp"
+
+d1 $every 4 (slow 0.5) (sound "[bd cp] hh")
+
+d1 $slow 2 (sound "[bd cp] hh")
+
+
+d1 $sound "bd cp" # gain "0.3" # shape "0.9" -- コンプ
+
+d1 $ density 1 $sound "bd*5 sn" #shape "0.8" # room "100" -- リバーブ
+
+d1 $ density 2 $sound "bd*3 cp" # delay "0.5" # delaytime "0.125"
+
+d1 $ sound "bd" #delay "1" #delayfeedback "0.5" #delaytime "0.5"
+
+d1 $sound "bd cp" # gain "1" # delay "0.2" # delaytime "0.9" #delayfeedback "0.3" -- ディレイ
+
+d1 $sound "bd" # delay "0.5" # delaytime "0.5" # delayfeedback "0.3"-- わからん！！
+
+d1 $sound "bd*4"
+
+d2 $ sound "hh*4"
+
+d1 $ sound "bd cp" # gain "0.5" #delay "0.3" #delaytime "0.25" #delayfeedback "0.5"
+
+d1 $sound "arpy*8" #speed "1.0 1.5" #gain "0.5"
+
+d1 $sound "arpy*8" #up (every 4 (rev) ("0 1 2 3 4 5 6")) #gain "0.5"
+
+d1 $sound "drum" # n (irand 32)
+
+d1 $ sound "sn*1000" # pan (rand)
+
+d1 $sound "{bd cp, hh hh hh hh}"
+
+sc $ freq "440 660 110 220"
+
+
+
+d1 silence
+
+hush

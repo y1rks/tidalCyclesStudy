@@ -1,0 +1,250 @@
+
+-----------------------------------------------------------
+
+d1
+$ slow 1
+$ jux (iter 4)
+$ sometimesBy 0.7 (rev)
+$ every 4 (density 1.5)
+$ stack[
+s "supergong(4, 8, 0)",
+s "bd(8, 8, 0)",
+s "bass(8, 8, 0)"
+]
+# sustain "7"
+# pan (rand)
+# n (irand 3)
+
+hush
+
+d1
+$ density 1.5
+$jux (iter 8)
+$ sometimesBy 0.7 (rev)
+$stack[
+    s "bd(3, 8, 1)",
+    s "bass1(2, 8, 2)",
+    s "cp(4, 8, 3)"
+]
+# n (irand 30)
+# room "1"
+# delay "1" # delayfeedback "1" #delaytime "1"
+# gain "3"
+
+t1 (xfadeIn 24)
+$ s "supergong(4, 8, 0)" # sustain "9"
+
+d1 $ s "supergong(1, 8, 0)" # sustain "9"
+
+hush
+
+
+-------------------------------------------------------------------
+
+
+d1
+$ slow 4
+$ jux (iter 4)
+$ sometimesBy 0.7 (rev)
+$ every 4 (density 1.5)
+$ stack[
+s "supergong(1, 8, 0)"
+]
+# sustain "7"
+# pan (rand)
+# n (irand 20)
+
+hush
+
+d1
+$ density 2
+$jux (iter 8)
+$stack[
+    s "bd(4, 8, 0)",
+    s "bass(4, 8, 1)",
+    s "cp(1, 8, 0)"
+]
+# n (irand 10)
+# room "5"
+# delay "1" # delayfeedback "1" #delaytime "1"
+# gain "2"
+
+
+
+hush
+
+
+-----------------------------------------------------------
+
+hush
+
+t1 (xfadeIn 32)
+
+d1
+$ slow 4
+$ jux (iter 4)
+-- $ sometimesBy 0.7 (rev)
+-- $ every 4 (density 1.5)
+$ stack[
+s "supergong(1, 8, 0)"
+-- s "bd(8, 8, 0)",
+-- s "bass(2, 8, 0)"
+]
+# sustain "7"
+# pan (rand)
+# n (irand 3)
+
+hush
+
+d1
+$ density 1.5
+$jux (iter 8)
+$ sometimesBy 0.7 (rev)
+$stack[
+    s "bd(3, 8, 1)",
+    s "bass1(2, 8, 2)",
+    s "cp(4, 8, 3)"
+]
+# n (irand 30)
+# room "1"
+# delay "1" # delayfeedback "1" #delaytime "1"
+# gain "3"
+
+hush
+
+t1 (xfadeIn 24)
+$ s "supergong(4, 8, 0)" # sustain "9"
+
+d1 $ s "supergong(1, 8, 0)" # sustain "9"
+
+
+-------------------------------------------------------------------
+
+
+d1
+$ slow 4
+$ jux (iter 4)
+$ sometimesBy 0.7 (rev)
+$ every 4 (density 1.5)
+$ stack[
+s "supergong(1, 8, 0)"
+]
+# sustain "7"
+# pan (rand)
+# n (irand 20)
+
+hush
+
+d1
+$ density 2
+$jux (iter 8)
+$stack[
+    s "bd(4, 8, 0)",
+    s "bass(4, 8, 1)",
+    s "cp(1, 8, 0)"
+]
+# n (irand 10)
+# room "5"
+# delay "1" # delayfeedback "1" #delaytime "1"
+# gain "2"
+
+
+
+hush
+
+--
+
+d2
+$ every 4 (density 2)
+$ jux (iter 4)
+$ s "supergong(4, 8, 0)"
+# n (irand 20)
+# sustain "9"
+# pan (rand)
+# gain "0.5"
+
+t1 (xfadeIn 16)
+$ every 4 (density 1)
+$ sometimesBy 0.75 (rev)
+$ jux (iter 4)
+$ stack [
+  s "bd(2, 8, 0)",
+  s "bass(5, 8, 0)",
+  s "cp(3, 8, 1)"
+]
+-- # n (irand 20)
+# room
+# gain "2"
+
+d2
+$ density 2
+$jux (iter 4)
+$stack[
+    s "bd(8, 8, 3)",
+    s "bass(6, 8, 1)",
+    s "cp(4, 8, 3)"
+]
+# n (irand 10)
+# room "4"
+# delay "1" # delayfeedback "1" #delaytime "1"
+# gain "2.5"
+
+d3
+$stack[
+  s "supersaw*20" # gain "0.5"
+]
+
+
+t1 (xfadeIn 16) $ s "supergong(4, 8, 0)" # n (irand 20) # sustain "9"
+
+hush
+
+d1
+$ every 4 (density "2")
+$ jux (iter 4)
+$stack[
+s "supergong(4, 8, 0)" # n (irand 20) # sustain "9"
+]
+# gain "1"
+
+hush
+
+d2
+$ slow "2"
+$ s "supersaw supersaw" # n "c5 c6"
+# room "2"
+# gain "0.7"
+
+d2 silence
+
+d1 silence
+
+d1
+$ density 1
+$jux (iter 4)
+$stack[
+    s "bd(3, 8, 0)",
+    s "bass(8, 8, 1)",
+    s "cp(8, 8, 3)"
+]
+# n (irand 20)
+# room "2"
+-- # delay "0.5" # delayfeedback "0.5" #delaytime "0.5"
+# gain "1.5"
+
+d1 silence
+
+
+
+d2 $ s "supergong" # sustain "1"
+
+d1 $ s "supergong supergong supergong supergong" # sustain "10" # n (irand 20)
+
+
+d1 silence
+
+d2 silence
+
+d3 silence
+
+hush

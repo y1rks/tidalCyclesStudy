@@ -1,0 +1,343 @@
+cps 1
+cps (120/120)
+
+d1 $ s "bd"
+#gain "1"
+
+d1 $ s "bd sn"
+#n (irand 20)
+
+solo $ d1 $ s "bd sn"
+solo $ d2 $ s "hh hh hh hh" # gain "1"
+
+
+solo $ d1 $ sound "bd [sn sn sn sn]"
+d1 $ sound "bd bd"
+
+d1 $ sound "[bd bd bd, sn cp sn cp]"
+
+d1 $ s "{bd bd bd, sn cp sn cp}"
+
+d1 $ sound "[bd sn bd sn] cp"
+d1 $ sound "[bd sn] [hh hh hh] cp/2"
+d1 $ sound "[[bd sn] cp]*2" -- speeds up the entire pattern by 2
+
+d1 $ sound "[[bd sn] cp]/2" -- slows down the entire
+
+
+d1 $ every 4 (rev) $ s "bd sn sn"
+
+d1 $ slow 0.4 $ s "bd*2 [bd [sn sn*2 sn] sn]"
+
+d1 $ every 4 (density 4) $ s "bd*2 [bd [sn sn*2 sn] sn]"
+
+
+d1 $ sound "bd*4" # gain "1 0.8 0.5 0.7"
+
+d1 $ sound "bd*4 hh*4" # gain "[[1 0.8 1 0.8] [0.5 0.7]]/2"
+
+d1 $ sound "bd*4 sn*4"
+
+d1 $ sound "bd*4" # gain (every 4 (rev) $ "1 0.8 0.5 0.7")
+
+d1 $ s "bd bd bd bd" # gain "1 0.5 1"
+
+d1 $ gain "1 0.5 1 0.5" # s "bd"
+
+d1 ( every 4 ( # speed "2 3 4 5" ) ( sound "arpy*4" # speed "3"))
+
+d1 $ every 2 ( # speed "1" ) $ sound "arpy*4"  speed "2"
+
+
+--------------------------
+
+d2 $ every 4 (slow 2) $ s "{sax/2, sax/4}"
+# gain "1"
+# n (irand 10)
+# room "1"
+# pan (rand)
+-- # speed (rand*10)
+
+---------------------
+
+d1 $ s "hh" # speed "-1"
+# n (irand 10)
+
+d1 $ sound "arpy*4" # speed "[1 0.5, 1 2 3]"
+
+d1 $ sound "arpy*4" # speed "[1 0.5]"
+
+cps 1
+
+d1 $ slow 1 $ s "hh*24" # speed (every 2 (rev) $ run 24)
+
+d1 $ n "0 2 3" # sound "arpy"
+
+d1 ( s ( samples "drum*4" "0 1 4 5"))
+
+d1 $ sound "drum:0 drum:1 drum:2 drum:3"
+
+d1 $ s "drum arpy cp hh" # n (irand 10)
+
+d1 $ s "drum arpy cp hh" # n (run 10)
+
+d1 $ n (run 10) # s "drum arpy cp hh"
+
+d1 $ slow 4 $ sound "bd sn drum arpy" # pan "0 1 0.5 0.5"
+
+d1 $ pan "0 1 0.25" # sound "bd drum arpy"
+
+d1 $ up "0 0*2 0*4 1" # sound "[arpy, bass2, bd]"
+
+d1 $ s "bd bd*2 bd*4 bd"
+
+d1 $ sound "bd*10" # pan sine1
+
+d2 $ s "arpy"
+
+d1 $ s "bd*16" # pan ( slow 8 $sine1)
+
+d1 $ s "bd*8 sn*8" # speed (tri)
+
+d1 $ sound "bd*16" # pan (slowcat [sine1, saw1, square1, tri1])
+
+d1 $ sound "sn:2*16" # (speed $ scale 0 10 sine1) |*| (speed $ slow 4 saw1)
+
+d1 $ sound "bd*8 sn*8" # speed scale 1 3 $ tri1
+
+d1 $ s "bd*8 sn*8" # speed (every 4 (slow 4) $ scale 1 3 $ tri1)
+
+d1 $ s "hh*32" # cutoff (scale 300 1000 $ slow 4 $ sine1) # resonance "0.4"
+
+d1 $ sound "{arpy bass2 drum notes}%3"
+
+d2 $ s "hh hh hh" # gain "2 1.5 1.5"
+
+d1 $ (0.25 ~>) $ sound "cp*2 hh sn bd*2 "
+
+d1 $ every 4 ((1/4) <~) $ sound "bd*2 cp*2 hh sn"
+
+d1 $ s "arpy*4" # pan (scale 0.25 0.75 rand)
+
+d1 $ s "bd? bd?"
+
+d1 $ s "[bd sn cp hh]?"
+
+d1 $ degradeBy 0.25 $ s "bd*4"
+
+d1 $ sometimesBy 0.75 (slow 4) $ s "bd*16"
+
+d1 $ every 5 (|+| speed "0.5") $ every 4 (0.25 <~) $ every 3 (rev) $ s "bd sn arpy*2 cp" # speed "[1 1.25 0.75 -1.5]/3"
+
+d1 $ whenmod 8 6 (rev) $ s "hh*22 bd*2 arpy*2 cp"
+
+d1 $ every 8 (rev) $ every 4 (density 2) $ s "bd hh sn cp"
+
+d1 $ whenmod 16 14 (# speed "2") $ s "bd arpy*2 cp bass2"
+
+d1 $ const (s "arpy*3") $ s "bd sn cp hh"
+
+d1 $ whenmod 8 7 (const $ s "arpy(3, 8) bd*4") $ s "bd sn bass2 sn"
+
+d1 $ every 12 (const $ s "bd*4 sn*2") $ s "bd sn bass2 sn"
+
+
+d1 $ cat [
+  s "bd sn:2" # vowel "[a o]/2",
+  s "casio*10"
+]
+
+d1 $ cat [sound "bd sn:2" # vowel "[a o]/2",
+          sound "casio casio:1 casio:2*2",
+          sound "drum drum:2 drum:3 drum:4*2"
+         ]
+
+         d1 $ slowcat [sound "bd sn:2" # vowel "[a o]/2",
+                       sound "casio casio:1 casio:2*2",
+                       sound "drum drum:2 drum:3 drum:4*2"
+                      ]
+
+d1 $ every 4 (slow 2) $ whenmod 5 3 (# speed "0.75 1.5") $ stack [
+                        sound "bd bd*2",
+                        sound "hh*2 [sn cp] cp",
+                        sound (samples "arpy*8" (run 16))
+                      ]
+
+
+
+d1 $ s $ samples "arpy*8" (run 8)
+# gain "1"
+
+d1 $ sound "arpy*8" (run 8) # speed "0.25")
+
+
+d2 $ s $ samples "arpy*8" (run 8)
+# cutoff "1"
+
+
+d1 $ sound $ samples "drum*4" "0 1 2 3" # gain "0.5 0.5 0.5 0.5"
+
+d1 $ sound "sax sax:1 sax:2 sax:3" # cut "2"
+
+
+--------------------------------
+
+d1 $ sound (samples "hc*8" $ run 4)
+
+t1 anticipate $ sound (samples "bd(3,8)" (run 3))
+
+t1 (xfadeIn 16) $ sound "bd(5,8)"
+
+
+d1 $ midinote "60 70*3" # s "arpy"
+
+d1 $ n "c5 d5*2" # s "arpy"
+
+d1 $ s "sax sax" # n "{c5, d5 d4}" # sustain "0.1"
+
+d1 $ up "0 0*2 0*4 1" # sound "[arpy:5, bass2, bd]"
+
+d1 $ s "bd [bd bd] [bd bd bd bd] bd"
+
+d1 $ n "c5" # s "supersaw"
+
+d1 $ midinote 70 # s "supersaw"
+
+
+------------------
+
+d1 $ n "<[a5,cs5,e5,g5]*3 [d5,fs5,g5,c5]>" # s "supersquare" # gain "0.7"
+
+d2 $ every 4 ( rev ) $ n "<[g5 df5 e5 a5] [gf5 d5 c5 g5]>" # s "supersaw"
+
+d1 silence
+
+
+d1 $ jux (# accelerate "-0.1") $ s "supermandolin*8" # midinote "[80!6 78]/8"
+  # sustain "1 0.25 2 1"
+
+-------------------------
+
+d1 $ n "<[5,5,6] [5,4,5]>" # s "supersquare"
+#gain "0.7"
+
+d1 $ s "supermandolin:1"
+
+d1 $ every 4 (rev) $ n "<[g5 df5 e5] [gf5 d5 c5]>"
+# s "supersaw"
+
+d1 $ density 3 $ n "0 0 0 0" # s "supersaw"
+# gain "0.1"
+# speed "2"
+# n (run 20)
+# pan (rand)
+#room "2"
+
+d2 $ s "supersquare/2" # n "e4"
+
+d3 silence
+
+d3 $ s "bd(3, 8, 0)"
+# gain "2"
+
+d1 $ n "c6" # s "supersaw"
+
+d1 $ n "{0, 4, 5}*2 {0, 2, 5}" # s "supermandolin"
+
+d1 $ n "c5 d5*2" # s "supersaw" # sustain "0.1"
+
+------------------------
+t3 (xfadeIn 16)
+$ density 2
+$jux (iter 4)
+$jux (iter 2)
+$stack[
+s "supersaw(7,8,4)" #n "{0, 7, 10, 17, 19}" #speed "1.5" #pan (rand),
+s "supersaw(7,8,2)" #n "{0, 7, 10, 17, 19}" #speed "1.0" #pan (rand),
+s "supersaw(3,8,7)" #n "{0, 7, 10, 17, 19}" #speed "0.75" #pan (rand),
+s "supersaw(3,8,5)" #n "{0, 7, 10, 17, 19}" #speed "0.5" #pan (rand),
+s "supersaw(3,8,3)" #n "{0, 7, 10, 17, 19}" #speed "0.25" #pan (rand)
+]
+|+|n "0 7 -7 12 -12"
+#cutoff (scale 2000 18000 $slow 16 $sine1) #resonance "0.4"
+#sustain "0.15 0.05"
+#gain "1.5"
+#delay "1" #delaytime "1" #delayfeedback "1"
+
+
+d2 $ s "bd(3, 8, 0)" # gain "3"
+#delay "1" #delaytime "1" #delayfeedback "1"
+
+d3 $ s "bd(3, 8, 0)" # gain "2"
+
+
+
+hush
+
+
+d1 $ s "tutorial1" # speed "2"
+
+d1 $ s "bd"
+
+d1 $ s "supergong supergong supergong supergong" # sustain "10" # n (irand 20)
+
+d1 $ s "cp" # sustain "1"
+
+d1 $ s "supergong" # decay "[1 0.2]/4"
+
+
+---------------
+
+t1 (xfadeIn 16) $ s "supergong(4, 8, 0)" # n (irand 20) # sustain "9"
+
+hush
+
+
+$ every 4 (density "2")
+$ jux (iter 4)
+$stack[
+s "supergong(4, 8, 0)" # n (irand 20) # sustain "9"
+]
+# gain "0.5"
+
+hush
+
+d2
+$ slow "2"
+$ s "supersaw supersaw" # n "c5 c6"
+# room "2"
+# gain "0.7"
+
+d2 silence
+
+d1 silence
+
+d1
+$ density 1
+$jux (iter 4)
+$stack[
+    s "bd(3, 8, 0)",
+    s "bass1(5, 8, 1)",
+    s "cp(2, 8, 3)"
+]
+# n (irand 20)
+# room "2"
+# delay "0.5" # delayfeedback "0.5" #delaytime "0.5"
+# gain "1.5"
+
+d1 silence
+
+
+
+d2 $ s "supergong" # sustain "1"
+
+d1 $ s "supergong supergong supergong supergong" # sustain "10" # n (irand 20)
+
+
+d1 silence
+
+d2 silence
+
+d3 silence
+
+hush

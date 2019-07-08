@@ -1,0 +1,4 @@
+-- memo
+d1 $ density 1 $sound "bd*10 sn*10" #shape "0.8" # room "1000"
+
+d1 $ sound "sn*1000" # pan (rand)
